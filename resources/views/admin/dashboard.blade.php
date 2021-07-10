@@ -6,20 +6,15 @@
             <div class="card" style="background-color: rgb(253 187 56 / 0.5); border-radius: 30px 0px; border: 1px solid #fdbb38;">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
-                        <div style="font-size: 25px; width: 50px; height: 50px; padding: 5px 19px; border-radius: 10px; color: #000;">
+                        <div style="font-size: 25px; width: 50px; height: 50px; padding: 5px 17px; border-radius: 10px; color: #000;">
                             <i class="fas fa-user-graduate"></i>
                         </div>
-                        <div class="justify-content-between align-items-center" style="display: block;">
-                            <h6>No Of Student : {{$totalStudents}}</h6>
+                        <div class="justify-content-between align-items-center" style="display: block; padding:10px 10px 10px 20px;">
+                            <h6 style="line-height: 20pt">Number Of Student : {{$totalStudents}}</h6>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
-
         </div>
 
         <div class="col-xl-3 col-sm-6 col-12">
@@ -27,19 +22,14 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <div style="font-size: 25px; width: 50px; height: 50px; padding: 5px 19px; border-radius: 10px; color: #000;">
-                        <i class="fas fa-user"></i>
+                            <i class="fas fa-chalkboard-teacher"></i>
                         </div>
-                        <div class="justify-content-between align-items-center" style="display: block;">
-                            <h6>No Of Teacher : {{$totalTeachers}}</h6>
+                        <div class="justify-content-between align-items-center" style="display: block; padding:10px 10px 10px 20px;">
+                            <h6 style="line-height: 20pt">Number Of Teacher : {{$totalTeachers}}</h6>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
-
         </div>
 
         <div class="col-xl-3 col-sm-6 col-12">
@@ -47,19 +37,14 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <div style="font-size: 25px; width: 50px; height: 50px; padding: 5px 19px; border-radius: 10px; color: #000;">
-                        <i class="fas fa-user"></i>
+                            <i class="fas fa-chalkboard"></i>
                         </div>
-                        <div class="justify-content-between align-items-center" style="display: block;">
-                            <h6>No Of Teacher : {{$totalTeachers}}</h6>
+                        <div class="justify-content-between align-items-center" style="display: block; padding:10px 10px 10px 20px;">
+                            <h6 style="line-height: 20pt">No Of School Class : {{$totalClasses}}</h6>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
-
         </div>
 
         <div class="col-xl-3 col-sm-6 col-12">
@@ -67,22 +52,16 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <div style="font-size: 25px; width: 50px; height: 50px; padding: 5px 19px; border-radius: 10px; color: #000;">
-                        <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
                         </div>
-                        <div class="justify-content-between align-items-center" style="display: block;">
-                            <h6>No Of Teacher : {{$totalTeachers}}</h6>
+                        <div class="justify-content-between align-items-center" style="display: block; padding:10px 10px 10px 20px;">
+                            <h6 style="line-height: 20pt">Number Of Teacher : {{$totalTeachers}}</h6>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
-
+    <hr>
 
 </x-front-layout>

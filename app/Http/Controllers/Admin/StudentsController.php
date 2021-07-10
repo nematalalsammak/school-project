@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\SchoolClass;
 use App\Models\Student;
+use App\Models\StudentParent;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -39,6 +42,9 @@ class StudentsController extends Controller
     {
         return view('admin.students.create',[
             'student'=>new Student(),
+            'schoolClasses'=>SchoolClass::all(),
+            'studentParents'=>StudentParent::all(),
+            'teachers'=>Teacher::all(),
         ]);
     }
 
@@ -96,6 +102,9 @@ class StudentsController extends Controller
         $student = Student::findOrFail($id);
         return view('admin.students.edit', [
             'student' => $student,
+            'schoolClasses'=>SchoolClass::all(),
+            'studentParents'=>StudentParent::all(),
+            'teachers'=>Teacher::all(),
         ]);
     }
 

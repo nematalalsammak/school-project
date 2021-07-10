@@ -17,6 +17,8 @@ class TeachersController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('view-any',Teacher::class);
+
         $teachers=Teacher::when($request->name,function($query,$value){
             $query->where(function($query)use($value){
             $query->where('teachers.name','LIKE',"%$value%");
@@ -37,6 +39,8 @@ class TeachersController extends Controller
      */
     public function create()
     {
+        $this->authorize('create',Teacher::class);
+
         return view('admin.teachers.create',[
             'teacher'=>new Teacher(),
         ]);
@@ -50,6 +54,8 @@ class TeachersController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',Teacher::class);
+
         $request->validate(Teacher::validateRules());
         $request->merge([
             'slug' => Str::slug($request->post('name')),
@@ -78,6 +84,8 @@ class TeachersController extends Controller
     public function show($id)
     {
         $teacher = Teacher::findOrFail($id);
+        $this->authorize('view',$teacher);
+
         return view('admin.teachers.show', [
             'teacher' => $teacher,
             
@@ -93,6 +101,9 @@ class TeachersController extends Controller
     public function edit($id)
     {
         $teacher = Teacher::findOrFail($id);
+
+        $this->authorize('update',$teacher);
+
         return view('admin.teachers.edit', [
             'teacher' => $teacher,
         ]);
@@ -108,6 +119,9 @@ class TeachersController extends Controller
     public function update(Request $request, $id)
     {
         $teacher = Teacher::findOrFail($id);
+
+        $this->authorize('update',$teacher);
+
         $request->validate(Teacher::validateRules());
 
         $data = $request->all();
@@ -140,6 +154,9 @@ class TeachersController extends Controller
     public function destroy($id)
     {
         $teacher = Teacher::findOrFail($id);
+
+        $this->authorize('delete',$teacher);
+
         $teacher->delete();
 
         if ($teacher->photo) {

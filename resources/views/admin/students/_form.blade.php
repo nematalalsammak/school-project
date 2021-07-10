@@ -15,6 +15,13 @@
     <p class="invalid-feedback">{{ $message }}</p>
     @enderror
 </div>
+<div class="form-group mb-3">
+    <label for="">Student ID:</label>
+    <input type="text" name="roll" value="{{ old('roll',$student->roll) }}" class="form-control @error('roll') is-invalid @enderror">
+    @error('roll')
+    <p class="invalid-feedback">{{ $message }}</p>
+    @enderror
+</div>
 <div class="form-group mb-4">
     <label for="">Date Of Birth:</label>
     <input type="date" name="DOB" value="{{ old('DOB',$student->DOB) }}" class="form-control @error('DOB') is-invalid @enderror">
@@ -69,7 +76,42 @@
     <p class="invalid-feedback">{{ $message }}</p>
     @enderror
 </div>
-
+<div class="form-group mb-3">
+    <label for="">Class Name:</label>
+    <select name="school_class_id" class="form-control @error('school_class_id') is-invalid @enderror">
+        <option value="">Select School Class</option>
+        @foreach ($schoolClasses as $schoolClass)
+        <option value="{{ $schoolClass->id }}" @if($schoolClass->id == old('school_class_id',$student->school_class_id)) selected @endif >{{ $schoolClass->name }}</option>
+        @endforeach
+    </select>
+    @error('school_class_id')
+    <p class="invalid-feedback">{{ $message }}</p>
+    @enderror
+</div>
+<div class="form-group mb-3">
+    <label for="">Parent ID Number:</label>
+    <select name="student_parent_id" class="form-control @error('student_parent_id') is-invalid @enderror">
+        <option value="">Select Parent ID Number</option>
+        @foreach ($studentParents as $studentParent)
+        <option value="{{ $studentParent->id }}" @if($studentParent->id == old('student_parent_id',$student->student_parent_id)) selected @endif >{{ $studentParent->id_number }}</option>
+        @endforeach
+    </select>
+    @error('student_parent_id')
+    <p class="invalid-feedback">{{ $message }}</p>
+    @enderror
+</div>
+<div class="form-group mb-3">
+    <label for="">Teacher Name:</label>
+    <select name="teacher_id" class="form-control @error('teacher_id') is-invalid @enderror">
+        <option value="">Select Teacher</option>
+        @foreach ($teachers as $teacher)
+        <option value="{{ $teacher->id }}" @if($teacher->id == old('teacher_id',$student->teacher_id)) selected @endif >{{ $teacher->name }}</option>
+        @endforeach
+    </select>
+    @error('teacher_id')
+    <p class="invalid-feedback">{{ $message }}</p>
+    @enderror
+</div>
 <div class="form-group">
     <button type="submit" class="btn btn-primary">{{ $button_lable ?? 'save'}}</button>
 </div>

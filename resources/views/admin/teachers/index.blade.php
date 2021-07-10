@@ -4,7 +4,7 @@
 <x-alert/>
 
 <div class="table-toolbar mb-3">
-<a href="{{ route('admin.teachers.create') }}"class="btn btn-info">create</a>
+<a href="{{ route('admin.teachers.create') }}"class="btn btn-info">Add Teacher</a>
 </div>
 
 <form action="{{ URL::current() }}" method="get" class="d-flex mb-4">
@@ -35,14 +35,14 @@
             <td>{{ $teacher->mobile }}</td>
             <td>
                 <button type="submit" class="btn btn-sm">
-                <a href="{{ route('admin.teachers.edit', $teacher->id) }}">Edit</a>
+                <a href="{{ route('admin.teachers.edit', $teacher->id) }}"><i class="fas fa-pen"></i></a>
                 </button>  
             </td>
             <td>
                 <form action="{{ route('admin.teachers.destroy', $teacher->id) }}" method="POST">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                 </form>    
             </td>
         </tr>

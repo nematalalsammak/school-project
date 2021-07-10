@@ -18,6 +18,10 @@
                             <span style="font-size: 18px;">{{$student->DOB}}</span>
                         </li>
                         <li style="display: flex; line-height: 30pt;">
+                            <span style="width:150px; font-weight: 500; font-size: 18px; padding-right:20px;">Gender:</span>
+                            <span style="font-size: 18px;">{{$student->gender}}</span>
+                        </li>
+                        <li style="display: flex; line-height: 30pt;">
                             <span style="width:150px; font-weight: 500; font-size: 18px; padding-right:20px;">Mobile:</span>
                             <span style="font-size: 18px;">{{$student->mobile}}</span>
                         </li>

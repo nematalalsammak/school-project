@@ -3648,7 +3648,7 @@ Created using IcoMoon - icomoon.io
 
 .table small,
 .table .small {
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .card-tasks .card-body .table {
@@ -3667,7 +3667,7 @@ Created using IcoMoon - icomoon.io
 
 .table>thead>tr>th {
   border-bottom-width: 1px;
-  font-size: 1.45em;
+  font-size: 18px;
   font-weight: 300;
   border: 0;
 }
@@ -3708,7 +3708,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .table .td-price {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 300;
   margin-top: 5px;
   position: relative;
@@ -3717,8 +3717,8 @@ Created using IcoMoon - icomoon.io
 }
 
 .table .td-total {
-  font-weight: 700;
-  font-size: 1.57em;
+  font-weight: 500;
+  font-size: 20px bold;
   padding-top: 20px;
   text-align: right;
 }
@@ -3732,12 +3732,12 @@ Created using IcoMoon - icomoon.io
 }
 
 .table-shopping>thead>tr>th {
-  font-size: 1em;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
 .table-shopping>tbody>tr>td {
-  font-size: 1em;
+  font-size: 20px;
 }
 
 .table-shopping>tbody>tr>td b {
@@ -3747,7 +3747,7 @@ Created using IcoMoon - icomoon.io
 
 .table-shopping .td-name {
   font-weight: 400;
-  font-size: 1.5em;
+  font-size: 15px;
 }
 
 .table-shopping .td-name small {
@@ -4072,17 +4072,17 @@ Created using IcoMoon - icomoon.io
 
 .sidebar[data-color="blue"]:after,
 .off-canvas-sidebar[data-color="blue"]:after {
-  background: #2CA8FF;
+  background: rgba(174, 134, 182, 0.781);
 }
 
 .sidebar[data-color="blue"] .nav li.active>a:not([data-toggle="collapse"]),
 .off-canvas-sidebar[data-color="blue"] .nav li.active>a:not([data-toggle="collapse"]) {
-  color: #2CA8FF;
+  color: #dfa3f1a6;
 }
 
 .sidebar[data-color="blue"] .nav li.active>a:not([data-toggle="collapse"]) i,
 .off-canvas-sidebar[data-color="blue"] .nav li.active>a:not([data-toggle="collapse"]) i {
-  color: #2CA8FF;
+  color: #f7dff748;
 }
 
 .sidebar[data-color="green"]:after,
@@ -4209,7 +4209,7 @@ Created using IcoMoon - icomoon.io
   background: #141E30;
   /* fallback for old browsers */
   background: -webkit-gradient(linear, left top, right top, from(#0c2646), color-stop(60%, #204065), to(#2a5788));
-  background: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+  background: linear-gradient(to right, #6e026e 0%, #e89beb 60%, #6e026e 100%);
   position: relative;
   overflow: hidden;
 }

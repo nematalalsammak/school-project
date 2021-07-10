@@ -18,11 +18,12 @@
   <link href="{{asset('assets/css/now-ui-dashboard.css')}}?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
+  <link href="{{asset('assets/css/sidebar-nav-item.css')}}" rel="stylesheet" />
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="green">
+    <div class="sidebar" data-color="blue">
       <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
       <div class="logo">
         <a href="" class="simple-text logo-normal">
@@ -36,18 +37,35 @@
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
-
           </li>
           <li>
             <a href="{{url('admin/teachers')}}" class="nav-link @if(request()->routeIs('admin.teachers.*'))active @endif">
-              <i class="now-ui-icons users_single-02"></i>
+              <i class="fas fa-chalkboard-teacher"></i>
               <p>Teachers</p>
             </a>
           </li>
           <li>
             <a href="{{url('admin/students')}}" class="nav-link @if(request()->routeIs('admin.students.*'))active @endif">
-              <i class="now-ui-icons location_map-big"></i>
+              <i class="fas fa-user-graduate"></i>
               <p>Students</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{url('admin/schoolClasses')}}" class="nav-link @if(request()->routeIs('admin.schoolClasses.*'))active @endif">
+              <i class="fas fa-chalkboard"></i>
+              <p>School Classes</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{url('admin/studentParent')}}" class="nav-link @if(request()->routeIs('admin.studentParent'))active @endif">
+              <i class="fas fa-user-tie"></i>
+              <p>Student Details</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{url('admin/attendance')}}" class="nav-link @if(request()->routeIs('admin.attendance'))active @endif">
+              <i class="fas fa-user-tie"></i>
+              <p>Attendance</p>
             </a>
           </li>
           <li>
@@ -59,6 +77,7 @@
 
         </ul>
       </div>
+
     </div>
 
     <div class="main-panel" id="main-panel">
@@ -93,33 +112,18 @@
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="now-ui-icons location_world"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Some Actions</span>
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                <div class="d-flex">
+                  @auth('web')
+                  <div class="ms-auto">
+                    <i class="now-ui-icons users_single-02"></i>
+                    {{Auth::guard('web')->user()->name}} |
+                    <a href="#" onclick="document.getElementById('logout').submit()"> Logout</a>
+                    <form id="logout" class="d-none" action="{{route('logout','web')}}" method="post">
+                      @csrf
+                    </form>
+                  </div>
+                  @endauth
                 </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
               </li>
             </ul>
           </div>

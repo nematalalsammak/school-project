@@ -15,6 +15,16 @@ class Teacher extends Model
         'name','gender','photo','address','mobile','slug',
     ];
 
+    public function students()
+    {
+        return $this->hasMany(Student::class,'teacher_id','id');
+    }
+
+    public function schoolClass()
+    {
+        return $this->hasOne(SchoolClass::class,'teacher_id','id');
+    }
+
     public static function validateRules()
     {
         return [
