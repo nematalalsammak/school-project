@@ -25,6 +25,11 @@ class Teacher extends Model
         return $this->hasOne(SchoolClass::class,'teacher_id','id');
     }
 
+    public function subject()
+    {
+        return $this->hasOne(Subject::class,'teacher_id','id');
+    }
+
     public static function validateRules()
     {
         return [

@@ -1,4 +1,4 @@
-<x-front-layout title="Edit role">
+<x-back-layout title="Edit role">
 <x-slot name="title">Edit role
 </x-slot>
 
@@ -10,4 +10,4 @@
     [ 'button_lable' =>'Update'
     ])
 </form>
-</x-front-layout>
+</x-back-layout>

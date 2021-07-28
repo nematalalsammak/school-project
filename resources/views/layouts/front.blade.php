@@ -1,181 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/apple-icon.png')}}">
-  <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    {{ $title ?? '' }}
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,50" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- CSS Files -->
-  <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
-  <link href="{{asset('assets/css/now-ui-dashboard.css')}}?v=1.5.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
-  <link href="{{asset('assets/css/sidebar-nav-item.css')}}" rel="stylesheet" />
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+     <!-- Site Metas -->
+    <title>SmartEDU - Education </title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{{asset('assetf/images/favicon.ico')}}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{asset('assetf/images/apple-touch-icon.png')}}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('assetf/css/bootstrap.min.css')}}">
+	
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{{asset('assetf/style.css')}}">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="{{asset('assetf/css/versions.css')}}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{{asset('assetf/css/responsive.css')}}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{asset('assetf/css/custom.css')}}">
+
+	<!--<link rel="stylesheet" href="{{asset('css/mdb.min.css')}}">
+	 <link rel="stylesheet" href="{{ asset('gallary/styles-merged.css') }}">
+	<link rel="stylesheet" href="{{ asset('gallary/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('gallary/style.min.css') }}">-->
+    <!-- Modernizer for Portfolio -->
+    <script src="{{asset('assetf/js/modernizer.js')}}"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
+<body class="host_version"> 
 
-<body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="blue">
-      <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
-      <div class="logo">
-        <a href="" class="simple-text logo-normal">
-          School Managment
-        </a>
-      </div>
-      <div class="sidebar-wrapper" id="sidebar-wrapper">
-        <ul class="nav">
-          <li>
-            <a href="{{url('admin/dashboard')}}" class="nav-link @if(request()->routeIs('admin.dashboard'))active @endif">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{url('admin/teachers')}}" class="nav-link @if(request()->routeIs('admin.teachers.*'))active @endif">
-              <i class="fas fa-chalkboard-teacher"></i>
-              <p>Teachers</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{url('admin/students')}}" class="nav-link @if(request()->routeIs('admin.students.*'))active @endif">
-              <i class="fas fa-user-graduate"></i>
-              <p>Students</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{url('admin/schoolClasses')}}" class="nav-link @if(request()->routeIs('admin.schoolClasses.*'))active @endif">
-              <i class="fas fa-chalkboard"></i>
-              <p>School Classes</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{url('admin/studentParent')}}" class="nav-link @if(request()->routeIs('admin.studentParent'))active @endif">
-              <i class="fas fa-user-tie"></i>
-              <p>Student Details</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{url('admin/attendance')}}" class="nav-link @if(request()->routeIs('admin.attendance'))active @endif">
-              <i class="fas fa-user-tie"></i>
-              <p>Attendance</p>
-            </a>
-          </li>
-          <li>
-            <a href="./notifications.html">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
-            </a>
-          </li>
+	<!-- Modal -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header tit-up">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Dashboard Login</h4>
+			</div>
+			<div class="modal-body customer-box">
+			    <a class="active" href="{{view('auth.login')}}"></a>
+			</div>
+		</div>
+	  </div>
+	</div>
 
-        </ul>
-      </div>
+    <!-- LOADER -->
+	<div id="preloader">
+		<div class="loader-container">
+			<div class="progress-br float shadow">
+				<div class="progress__item"></div>
+			</div>
+		</div>
+	</div>
+	<!-- END LOADER -->	
+	
+	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html">
+					<img src="{{asset('assetf/images/logo.png')}}" alt="" />
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-host">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item @if(request()->routeIs('front.home'))active @endif"><a class="nav-link" href="{{ route('front.home') }}">Home</a></li>
+						<li class="nav-item @if(request()->routeIs('front.aboutUs'))active @endif"><a class="nav-link" href="{{ route('front.aboutUs') }}">About Us</a></li>
+						<li class="nav-item @if(request()->routeIs('front.blog'))active @endif"><a class="nav-link " href="{{ route('front.blog') }}">Blog </a></li>
+						<li class="nav-item @if(request()->routeIs('front.teacher'))active @endif"><a class="nav-link " href="{{ route('front.teacher') }}">Teachers</a></li>
+						<li class="nav-item @if(request()->routeIs('front.contact'))active @endif"><a class="nav-link " href="{{ route('front.contact') }}">Contact</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+                        <li><a class="hover-btn-new log orange" href="{{ route('login') }}" data-toggle="modal" data-target="#login"><span>Dashboard Login</span></a></li>
+                    </ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
+	
+{{$slot}}
 
-    </div>
-
-    <div class="main-panel" id="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <div class="navbar-toggle">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-            <a class="navbar-brand" href="">{{ $title ?? 'Default Title' }}</a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                  </div>
+    <div class="parallax section dbcolor">
+        <div class="container">
+            <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{{asset('assetf/images/logo_01.png')}}" alt="" class="img-repsonsive"></a>
                 </div>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <div class="d-flex">
-                  @auth('web')
-                  <div class="ms-auto">
-                    <i class="now-ui-icons users_single-02"></i>
-                    {{Auth::guard('web')->user()->name}} |
-                    <a href="#" onclick="document.getElementById('logout').submit()"> Logout</a>
-                    <form id="logout" class="d-none" action="{{route('logout','web')}}" method="post">
-                      @csrf
-                    </form>
-                  </div>
-                  @endauth
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{{asset('assetf/images/logo_02.png')}}" alt="" class="img-repsonsive"></a>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <!-- End Navbar -->
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{{asset('assetf/images/logo_03.png')}}" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{{asset('assetf/images/logo_04.png')}}" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{{asset('assetf/images/logo_05.png')}}" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{{asset('assetf/images/logo_06.png')}}" alt="" class="img-repsonsive"></a>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
 
-      <div class="panel-header panel-header-sm">
-      </div>
-      <div class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">{{ $title ?? 'Default Title' }}</h4>
-              </div>
-              <div class="card-body">
-                {{ $slot }}
-              </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>About US</h3>
+                        </div>
+                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>   
+						<div class="footer-right">
+							<ul class="footer-links-soi">
+								<li><a href="https://www.facebook.com/nema.sammak"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://github.com/nematalalsammak"><i class="fa fa-github"></i></a></li>
+								<li><a href="https://twitter.com/Nema_Alsammak"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://www.linkedin.com/in/nema-al-sammak/"><i class="fa fa-linkedin"></i></a></li>
+							</ul><!-- end links -->
+						</div>						
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
 
+				<div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Information Link</h3>
+                        </div>
+                        <ul class="footer-links">
+                            <li><a href="{{ route('front.home') }}">Home</a></li>
+                            <li><a href="{{ route('front.blog') }}">Blog</a></li>
+							<li><a href="{{ route('front.teacher') }}">Teachers</a></li>
+							<li><a href="{{ route('front.aboutUs') }}">About</a></li>
+							<li><a href="{{ route('front.contact') }}">Contact</a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+				
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Contact Details</h3>
+                        </div>
+
+                        <ul class="footer-links">
+                            <li><a href="mailto:#">nema.talal.sammak@gmail.com</a></li>
+                            <li>+972-597230922</li>
+                            <li>Palestine - Gaza Strip</li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+				
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
+
+    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-center">                   
+                    <p class="footer-company-name">All Rights Reserved 2021<a href="#">SmartEDU</a> Design By : Nema Al sammak</a></p>
+                </div>
             </div>
-          </div>
-        </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
 
-      </div>
-      <footer class="footer">
-        <div class=" container-fluid ">
-          <nav>
-            <ul>
-              <li><a href="https://www.creative-tim.com">School Management</a></li>
-              <li><a href="http://presentation.creative-tim.com">About Us</a></li>
-            </ul>
-          </nav>
-        </div>
-      </footer>
-    </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
-  <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
-  <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
-  <script src="{{asset('assets/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="{{asset('assets/js/plugins/chartjs.min.js')}}"></script>
-  <!--  Notifications Plugin    -->
-  <script src="{{asset('assets/js/plugins/bootstrap-notify.js')}}"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="{{asset('assets/js/now-ui-dashboard.min.js')}}?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-  <script src="{{asset('assets/demo/demo.js')}}"></script>
-
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+	
+    <!-- ALL JS FILES -->
+	<script src="{{asset('js/mdb.min.js')}}"></script>
+	
+    <script src="{{asset('assetf/js/all.js')}}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{asset('assetf/js/custom.js')}}"></script>
+	<script src="{{asset('assetf/js/timeline.min.js')}}"></script>
+	<!--<script src="{{ asset('gallary/scripts.min.js') }}"></script>
+	<script src="{{ asset('gallary/scripts.js') }}"></script>
+    <script src="{{ asset('gallary/main.min.js') }}"></script>
+    <script src="{{ asset('gallary/custom.js') }}"></script>-->
+	<script>
+		timeline(document.querySelectorAll('.timeline'), {
+			forceVerticalMode: 700,
+			mode: 'horizontal',
+			verticalStartPosition: 'left',
+			visibleItems: 4
+		});
+	</script>
+	
 </body>
-
 </html>

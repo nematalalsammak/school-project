@@ -1,4 +1,4 @@
-<x-front-layout title="Attendance List">
+<x-back-layout title="Attendance List">
     <x-slot name="title">Attendance List
     </x-slot>
     <x-alert />
@@ -40,7 +40,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Student ID</th>
                         <th>Student Name</th>
                         <th>Status</th>
                     </tr>
@@ -48,7 +48,7 @@
                 <tbody>
                     @foreach ($students as $student)
                     <tr>
-                        <td><input type="text" name="student_id[]" value="{{$student->roll}}" hidden>{{ $student->roll }}</td>
+                        <td><input type="hidden" name="student_id[]" value="{{$student->id}}" >{{ $student->id }}</td>
                         <td>{{ $student->name }}</td>
                         <td>
                             <div>
@@ -78,4 +78,4 @@
     </form>
 
 
-</x-front-layout>
+</x-back-layout>

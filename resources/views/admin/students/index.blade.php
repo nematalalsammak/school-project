@@ -1,4 +1,4 @@
-<x-front-layout title="Students List">
+<x-back-layout title="Students List">
 <x-slot name="title">Students List
 </x-slot>
 <x-alert/>
@@ -36,7 +36,7 @@
             <td><a href="{{ route('admin.students.show', $student->id) }}">{{ $student->name }}</a></td>
             <td>{{ $student->roll }}</td>
             <td>{{$student->schoolClass->name}}</td>
-            <td><img src="{{ $student->image_url }}" height="50" alt=""></td>
+            <td><img src="{{ $student->image_url }}" height="50" width="50" alt=""></td>
             <td>{{ $student->DOB}}</td>
             <td>{{ $student->gender }}</td>
             <td>{{ $student->address }}</td>
@@ -59,4 +59,4 @@
     </tbody>
 </table>
 {{$students->links()}}
-</x-front-layout>
+</x-back-layout>

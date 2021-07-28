@@ -38,6 +38,11 @@ class Student extends Model
         ]);
     }
 
+    public function grade()
+    {
+        return $this->hasOne(Grade::class,'student_id','id');
+    }
+
     /*public function attendance()
     {
         return $this->hasOne(Attendance::class,'student_id','id');

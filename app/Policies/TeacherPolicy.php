@@ -12,7 +12,7 @@ class TeacherPolicy
 
     public function before(User $user,$ability)
     {
-        if($user->type == 'admin' && $user->type == 'teacher'){
+        if($user->type == 'super_admin' && $user->type == 'teacher'){
             return true;
         }
     }

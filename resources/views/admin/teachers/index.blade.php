@@ -1,4 +1,4 @@
-<x-front-layout title="Teacher List"> 
+<x-back-layout title="Teacher List"> 
 <x-slot name="title">Teacher List
 </x-slot>  
 <x-alert/>
@@ -29,7 +29,7 @@
         <tr>
             <td>{{ $teacher->id }} </td>
             <td><a href="{{ route('admin.teachers.show', $teacher->id) }}">{{ $teacher->name }}</a></td>
-            <td><img src="{{ $teacher->image_url }}" height="50" alt=""></td>
+            <td><img src="{{ $teacher->image_url }}" height="50" width="40" alt=""></td>
             <td>{{ $teacher->gender }}</td>
             <td>{{ $teacher->address }}</td>
             <td>{{ $teacher->mobile }}</td>
@@ -50,5 +50,5 @@
     </tbody>
 </table>
 {{$teachers->links()}}
-</x-front-layout>
+</x-back-layout>
 

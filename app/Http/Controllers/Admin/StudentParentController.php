@@ -39,6 +39,8 @@ class StudentParentController extends Controller
      */
     public function create()
     {
+        $this->authorize('create',Student::class);
+
         return view('admin.studentParent.create',[
             'studentParents'=>new StudentParent(),
         ]);
@@ -52,13 +54,15 @@ class StudentParentController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',Student::class);
+
         $request->validate(StudentParent::validateRules());
         
         $data = $request->all();
 
         $studentParent = StudentParent::create($data);
         
-        return redirect()->route('admin.studentParent')
+        return redirect()->route('admin.studentParent.index')
             ->with('success', "StudentParent ($studentParent->name) created!");
     }
 
@@ -81,7 +85,12 @@ class StudentParentController extends Controller
      */
     public function edit($id)
     {
+        
+
         $studentParent = StudentParent::findOrFail($id);
+
+        $this->authorize('update',$studentParent);
+
         return view('admin.studentParent.edit', [
             'studentParents'=>$studentParent,
             
@@ -97,6 +106,8 @@ class StudentParentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('update');
+
         $studentParent = StudentParent::findOrFail($id);
 
         $request->validate(StudentParent::validateRules());
@@ -105,7 +116,7 @@ class StudentParentController extends Controller
         
         $studentParent->update($data);
 
-        return redirect()->route('admin.studentParent')
+        return redirect()->route('admin.studentParent.index')
             ->with('success', "StudentParent ($studentParent->name) updated!");
 
     }
@@ -118,10 +129,12 @@ class StudentParentController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('delete');
+
         $studentParent = StudentParent::findOrFail($id);
         $studentParent->delete();
         
-        return redirect()->route('admin.studentParent')
+        return redirect()->route('admin.studentParent.index')
             ->with('success', "StudentParent ($studentParent->name) deleted!");
     }
 }

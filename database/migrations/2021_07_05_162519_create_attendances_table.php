@@ -15,10 +15,11 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->json('student_id');
+            //$table->json('student_id');
             $table->date('attendance_date');
-            //$table->enum('status',['present','absent']);
-            $table->json('status');
+            $table->enum('status',['present','absent']);
+            $table->foreignId('student_id')->nullable()->constrained('students','id')->nullOnDelete();
+            //$table->json('status');
             //$table->foreignId('school_class_id')->constrained('school_classes','id')->nullOnDelete();
             $table->timestamps();
         });

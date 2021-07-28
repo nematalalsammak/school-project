@@ -1,4 +1,4 @@
-<x-front-layout title="School Class List">
+<x-back-layout title="School Class List">
 <x-slot name="title">School Class List
 </x-slot>
 <x-alert/>
@@ -47,4 +47,4 @@
     </tbody>
 </table>
 
-</x-front-layout>
+</x-back-layout>

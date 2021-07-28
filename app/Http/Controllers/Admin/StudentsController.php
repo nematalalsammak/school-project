@@ -20,6 +20,8 @@ class StudentsController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('view-any',Student::class);
+
         $students=Student::when($request->name,function($query,$value){
             $query->where(function($query)use($value){
             $query->where('students.name','LIKE',"%$value%");
@@ -40,6 +42,8 @@ class StudentsController extends Controller
      */
     public function create()
     {
+        $this->authorize('create',Student::class); 
+
         return view('admin.students.create',[
             'student'=>new Student(),
             'schoolClasses'=>SchoolClass::all(),
@@ -56,6 +60,8 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',Student::class);
+
         $request->validate(Student::validateRules());
         $request->merge([
             'slug' => Str::slug($request->post('name')),
@@ -85,6 +91,9 @@ class StudentsController extends Controller
     public function show($id)
     {
         $student = Student::findOrFail($id);
+
+        $this->authorize('view',$student);
+
         return view('admin.students.show', [
             'student' => $student,
             
@@ -100,6 +109,9 @@ class StudentsController extends Controller
     public function edit($id)
     {
         $student = Student::findOrFail($id);
+
+        $this->authorize('update',$student);
+
         return view('admin.students.edit', [
             'student' => $student,
             'schoolClasses'=>SchoolClass::all(),
@@ -118,6 +130,9 @@ class StudentsController extends Controller
     public function update(Request $request, $id)
     {
         $student = Student::findOrFail($id);
+
+        $this->authorize('update',$student);
+
         $request->validate(Student::validateRules());
 
         $data = $request->all();
@@ -151,6 +166,9 @@ class StudentsController extends Controller
     public function destroy($id)
     {
         $student = Student::findOrFail($id);
+        
+        $this->authorize('delete',$student);
+
         $student->delete();
 
         if ($student->photo) {

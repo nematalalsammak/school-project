@@ -1,4 +1,4 @@
-<x-front-layout title="Veiw Student">
+<x-back-layout title="Veiw Student">
     <x-slot name="title">View Student
     </x-slot>
     <div class="container card">
@@ -38,4 +38,4 @@
             </div>
         </div>
     </div>
-</x-front-layout>
+</x-back-layout>

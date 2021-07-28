@@ -1,4 +1,4 @@
-<x-front-layout title="Add roles">
+<x-back-layout title="Add roles">
 <x-slot name="title">Add roles
 </x-slot>
 
@@ -9,4 +9,4 @@
     ])
 
 </form>
-</x-front-layout>
+</x-back-layout>

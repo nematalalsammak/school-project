@@ -1,4 +1,4 @@
-<x-front-layout title="Add Student Parent">
+<x-back-layout title="Add Student Parent">
 <x-slot name="title">Add Student Parent
 </x-slot>
 
@@ -9,4 +9,4 @@
 
 </form>
 
-</x-front-layout>
+</x-back-layout>

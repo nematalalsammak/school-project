@@ -1,4 +1,4 @@
-<x-front-layout title="Student Details">
+<x-back-layout title="Student Details">
     <x-slot name="title">Student Details
     </x-slot>
     <x-alert />
@@ -6,8 +6,6 @@
     <div class="table-toolbar mb-3">
 <a href="{{ route('admin.studentParent.create') }}"class="btn btn-info">Create Student Parent</a>
 </div>
-
-
 
     <div class="row-auto">
         <form action="{{ route('admin.studentParent.index') }}" method="get" class="d-flex mb-4">
@@ -33,7 +31,7 @@
                 <tr>
                     <td>{{ $student->id }} </td>
                     <td>{{ $student->name }}</td>
-                    <td><img src="{{ $student->image_url }}" height="50" alt=""></td>
+                    <td><img src="{{ $student->image_url }}" height="90" width="90" alt=""></td>
                     <td>{{ $student->email }}</td>
                     <td>{{ $student->parent->id_number }}</td>
                     <td>{{ $student->teacher->name }}</td>
@@ -46,4 +44,4 @@
 
     </div>
 
-</x-front-layout>
+    </x-back-layout>

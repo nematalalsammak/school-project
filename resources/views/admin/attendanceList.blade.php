@@ -1,4 +1,4 @@
-<x-front-layout title="Attendance List">
+<x-back-layout title="Attendance List">
     <x-slot name="title">Attendance List
     </x-slot>
 <div class="container">
@@ -8,7 +8,7 @@
                 @csrf
                 <div>
                 <label for="">Select Date</label>
-                <input type="date" name="attendance_date" class="form-control">
+                <input type="date" name="attendance_date" class="form-control" value="{{ old('attendance_date')}}">
                 <button type="submit" class="btn btn-primary">search</button>
                 </div>
         </div>
@@ -17,27 +17,18 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Student Name</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($attendance as $attendance)
                         <tr>
-                        <td>
-                        <tr>
-                        @foreach($attendance->student_id as $attribute=>$value)
-                          <td>{{$value}}</td>
-                        @endforeach
-                        </tr>
-                        <tr> 
-                        @foreach($attendance->status as $attribute=>$value)
-                          <td>{{$value}}</td>
-                        @endforeach
-                        </tr>
-                        </td>     
+                        <td>{{$attendance->student->name}}</td>
+                        <td>{{$attendance->status}}</td>
                         </tr>
                         @endforeach
+                        
                     </tbody>
                 </table>
 
@@ -45,4 +36,4 @@
         </div>
     </div>
 </div> 
-</x-front-layout>
+</x-back-layout>

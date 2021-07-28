@@ -39,16 +39,22 @@ class AttendanceController extends Controller
         //dd($request);
         $request->validate(Attendance::validateRules());
         
-
+        foreach($request->post('student_id')as $key=>$student_id){
+            $attendance = Attendance::create([
+                'student_id'=>$student_id,
+                'status'=>$request->input("status.$key"),
+                'attendance_date'=>$request->post('attendance_date'),
+            ]);
+        }
         /*$attendance=new Attendance();
         $attendance->student_id=$request->post('student_id');
         $attendance->attendance_data=$request->post('date');
         $attendance->status=$request->post('status');
         $attendance->save();*/
-
-        $data = $request->all();
+        
+        //$data = $request->all();
         //dd($data);
-        $attendance = Attendance::create($data);
+        
 
         return redirect()->route('admin.attendance')
             ->with('success', "Attendance Added succesfully!");

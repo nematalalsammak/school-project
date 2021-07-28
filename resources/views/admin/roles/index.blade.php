@@ -1,4 +1,4 @@
-<x-front-layout title="Roles List">
+<x-back-layout title="Roles List">
 <x-slot name="title">Roles List
 </x-slot>
 <x-alert/>
@@ -36,4 +36,4 @@
     </tbody>
 </table>
 {{$roles->links()}}
-</x-front-layout>
+</x-back-layout>

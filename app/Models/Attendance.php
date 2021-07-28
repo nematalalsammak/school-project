@@ -11,9 +11,9 @@ class Attendance extends Model
     protected $fillable=[
         'attendance_date','status','student_id',
     ];
-    protected $casts=[
+    /*protected $casts=[
         'status'=>'array','student_id'=>'array',
-    ];
+    ];*/
     
     public static function validateRules()
     {
@@ -23,10 +23,10 @@ class Attendance extends Model
         ];
     }
 
-    /*public function student()
+    public function student()
     {
         return $this->belongsTo(Student::class,'student_id','id');
-    }*/
+    }
 
     
 }

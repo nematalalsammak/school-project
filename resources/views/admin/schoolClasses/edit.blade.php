@@ -1,4 +1,4 @@
-<x-front-layout title="Edit School Class">
+<x-back-layout title="Edit School Class">
 <x-slot name="title">Edit School Class
 </x-slot>
 
@@ -9,4 +9,4 @@
     [ 'button_lable' =>'Update' ])
 </form>
 
-</x-front-layout>
+</x-back-layout>

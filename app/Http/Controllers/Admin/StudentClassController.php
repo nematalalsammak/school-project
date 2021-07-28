@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\SchoolClass;
+use App\Models\Student;
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -17,6 +19,8 @@ class StudentClassController extends Controller
      */
     public function index(Request $request)
     {
+        //$this->authorize('view-any',SchoolClass::class);
+
         $schoolClass=SchoolClass::when($request->name,function($query,$value){
             $query->where(function($query)use($value){
             $query->where('school_classes.name','LIKE',"%$value%");
@@ -38,6 +42,8 @@ class StudentClassController extends Controller
      */
     public function create()
     {
+        $this->authorize('create',SchoolClass::class);
+
         return view('admin.schoolClasses.create',[
             'schoolClass'=>new SchoolClass(),
             'teachers'=>Teacher::all(),
@@ -53,6 +59,8 @@ class StudentClassController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',SchoolClass::class);
+
         $request->validate(SchoolClass::validateRules());
 
         $data = $request->all();
@@ -83,6 +91,9 @@ class StudentClassController extends Controller
     public function edit($id)
     {
         $schoolClass = SchoolClass::findOrFail($id);
+
+        $this->authorize('update',$schoolClass);
+
         return view('admin.schoolClasses.edit', [
             'schoolClass' => $schoolClass,
             'teachers'=>Teacher::all(),
@@ -101,6 +112,9 @@ class StudentClassController extends Controller
     public function update(Request $request, $id)
     {
         $schoolClass = SchoolClass::findOrFail($id);
+
+        $this->authorize('update',$schoolClass);
+
         $request->validate(SchoolClass::validateRules());
 
         $data = $request->all();
@@ -119,6 +133,9 @@ class StudentClassController extends Controller
     public function destroy($id)
     {
         $schoolClass = SchoolClass::findOrFail($id);
+
+        $this->authorize('delete',$schoolClass);
+
         $schoolClass->delete();
         
         return redirect()->route('admin.schoolClasses.index')

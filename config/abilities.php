@@ -12,11 +12,17 @@ return[
     'students.update' => 'Update student',
     'students.delete' => 'Delete student',
 
-    'parents.view-any' => 'View all parents',
-    'parents.view' => 'View parent',
-    'parents.create' => 'Create parent',
-    'parents.update' => 'Update parent',
-    'parents.delete' => 'Delete parent',
+    'StudentParents.view-any' => 'View all parents',
+    'StudentParents.view' => 'View parent',
+    'StudentParents.create' => 'Create parent',
+    'StudentParents.update' => 'Update parent',
+    'StudentParents.delete' => 'Delete parent',
+
+    'subjects.view-any' => 'View all subjects',
+    'subjects.view' => 'View subject',
+    'subjects.create' => 'Create subject',
+    'subjects.update' => 'Update subject',
+    'subjects.delete' => 'Delete subject',
 
     'schoolClasses.view-any' => 'View all schoolClasses',
     'schoolClasses.view' => 'View schoolClass',
